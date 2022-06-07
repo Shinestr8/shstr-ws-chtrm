@@ -1,0 +1,50 @@
+html, body, #root{
+  height: 100%;
+  width: 100%;
+  background-color: lightblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatting{
+  background-color: aqua;
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatting .msg-history{
+  background-color: #eeeeee;
+  height: 90%;
+}
+
+.chatting .text-box{
+  background-color: red;
+  height: 10%;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.text-box form{
+  width: 100%;
+}
+
+.text-box form input{
+  box-sizing: border-box;
+  width: 90%;
+  height: 100%;
+  resize: none;
+}
+
+.text-box form button{
+  box-sizing: border-box;
+  width: 10%;
+  height: 100%;
+}
+
+.msg{
+  border-bottom: 1px solid lightblue;
+  padding: .2rem;
+}
