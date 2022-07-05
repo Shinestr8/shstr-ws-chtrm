@@ -30,7 +30,6 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'))
   })
 
-//start our server
 server.listen(process.env.PORT || 8000, () => {
     console.log(`Server started on port ${server.address().port}`);
 });
