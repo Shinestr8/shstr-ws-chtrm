@@ -1,12 +1,16 @@
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 import {useEffect, useState, useRef} from "react"
 import { useNavigate } from "react-router-dom";
-const client = new W3CWebSocket('ws://192.168.1.20:8000');
+
 
 export function Chat(props){
   const [message, setMessage] = useState("")
   const [messages, setMessages] = useState([]);
+
   const navigate = useNavigate();
+
+  
+  const client = new W3CWebSocket(`ws://${props.ip}:8000`);
 
 
   useEffect(function(){
@@ -50,7 +54,6 @@ export function Chat(props){
 
   return (
     <div className="chatting">
-      
       <div className="msg-history">
         <span>Joined chatroom as {props.user} </span>
         {messages.map(function(msg, index){
