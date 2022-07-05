@@ -1,8 +1,16 @@
 const express = require('express');
 const http = require('http');
 const WebSocket = require('ws');
+const path = require('path');
 
 const app = express();
+
+app.use(express.static(path.join(__dirname, 'build')))
+
+//main route that serves front end from build folder
+app.get('/', function(req, res){
+    res.sendFile(path.join(__dirname, 'build', 'index.html'))
+})
 
 const server = http.createServer(app);
 
@@ -15,10 +23,12 @@ wss.on('connection', (ws) => {
             client.send(JSON.stringify(JSON.parse(message).dataToSend))
         })
     });
-
-    //send immediatly a feedback to the incoming connection    
-    // ws.send({"user": "server", "message": "Welcome to the chat room"});
 });
+
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'))
+  })
 
 //start our server
 server.listen(process.env.PORT || 8000, () => {

@@ -70,8 +70,8 @@ export function Chat(props){
           type="text"
           value={message}
           onChange={handleTextAreaChange}
-          placeholder="type your message here..."/
-        >
+          placeholder="type your message here..."
+          />
         <button onClick={sendMessage}>
           Send
         </button>
