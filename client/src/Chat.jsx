@@ -20,6 +20,7 @@ export function Chat(props){
     client.onmessage = (message)=>{
       setMessages(messages => [...messages, JSON.parse(message.data)])
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(function(){
@@ -50,6 +51,7 @@ export function Chat(props){
   const scrollToBottom = () => {
     messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
   };
+
   useEffect(scrollToBottom, [messages]);
 
   return (

@@ -17,20 +17,26 @@ function App() {
   function handleColor(c){
     setColor(c);
   }
+
+  //another way to get the ip
+  // useEffect(function(){
+  //   fetch('/ip')
+  //       .then(function(result){
+  //           return result.json();
+  //       })
+  //       .then(
+  //         (result) => {
+  //           setIp(result)
+  //         },
+  //         (error) => {
+  //           console.log("error");
+  //         }
+  //       )
+  // }, [])
+
   useEffect(function(){
-    fetch('/ip')
-        .then(function(result){
-            return result.json();
-        })
-        .then(
-          (result) => {
-            setIp(result)
-          },
-          (error) => {
-            console.log("error");
-          }
-        )
-  }, [])
+    setIp(window.location.hostname);
+  },[])
   
 
 
